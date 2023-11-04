@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"os/user"
 )
 
 func main() {
@@ -17,9 +18,7 @@ func main() {
 // Multi variable declaration
 package main
 
-import (
-	"fmt"
-)
+import ("fmt") 
 
 func main() {
 	var name string = "KodeKloud"
@@ -33,9 +32,7 @@ func main() {
 
 package main
 
-import (
-	"fmt"
-)
+import ("fmt")
 
 func main() {
 	var name string = "KodeKloud"
@@ -50,9 +47,7 @@ func main() {
 
 package main
 
-import (
-	"fmt"
-)
+import ("fmt")
 
 func main() {
 	var name string = "KodeKloud"
@@ -68,9 +63,7 @@ func main() {
 
 package main
 
-import (
-	"fmt"
-)
+import ("fmt")
 
 func main() {
 	var name string = "KodeKloud"
@@ -82,5 +75,40 @@ func main() {
 
 // KodeKloud
 // Yoshita
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+package main
+
+import ("fmt")
+
+func main() {
+	var name,user string = "KodeKloud" , "Yoshita"
+	
+	fmt.Println(name)       
+	fmt.Print(user)
+}
+
+// KodeKloud
+// Yoshita
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+package main
+
+import ("fmt")
+
+func main() {
+	var (
+		name string = "Yoshita"
+		age int = 21
+	)
+	
+	fmt.Println(name)       
+	fmt.Print(age)
+}
+
+// KodeKloud
+// 21
 
 -----------------------------------------------------------------------------------------------------------------------------

@@ -11,3 +11,20 @@ var s string = "Hello Yoshita"
 var i int = 100
 var b bool = true
 var f float64 = 77.90
+
+3. Short Variable Declaration
+
+s := "Hello Yoshita"
+
+package main
+
+import ("fmt")
+
+func main() {
+
+	name := "Yoshita"
+
+	fmt.Println(name)
+}
+
+// Yoshita
