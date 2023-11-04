@@ -1,0 +1,25 @@
+Printf - format specifier
+
+1. %v ---> formats the value in a default format.
+
+var name string = "Yoshita"
+fmt.Printf("Nice to see you here, at %v" , name)
+
+2. %d ---> formats decimal integers
+
+var grades int = 07
+fmt.Printf("Marks: %d", grades)    ---> 7
+
+3. %T ---> type of the value
+
+4. %c ---> character
+
+5. %q ---> quoted characters/string
+
+6. %f ---> floating numbers
+
+7. %.2f --> floating numbers upto 2 decimal places
+
+8. %s ---> plain string
+
+9. %t ---> true or false
