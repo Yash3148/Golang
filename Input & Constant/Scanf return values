@@ -1,0 +1,15 @@
+count ----> The number of arguments that the function writes to. 
+
+err   ----> Any error throwm during the execution of the function.
+
+package main 
+
+import ("fmt")
+func main()  {
+	var a string
+	var b Input
+	fmt.Print("Enter a string and a number: ")
+	count, err := fmt.Scanf("%s %d", &a, &b)
+
+	fmt.Println("count  ")
+}
