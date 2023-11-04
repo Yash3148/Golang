@@ -1,0 +1,24 @@
+In Go, every data type has a default or zero value assigned to it when a variable is declared but not explicitly initialized with a value. These zero values are specific to each data type and are automatically assigned by the Go runtime. Here are some common zero values for different data types in Go:
+
+Numeric Types:
+int and uint: Zero value is 0.
+float32 and float64: Zero value is 0.0.
+complex64 and complex128: Zero value is (0+0i).
+
+Boolean Type:
+bool: Zero value is false.
+
+String Type:
+string: Zero value is an empty string, "".
+
+Pointer Types:
+Pointers to any data type have a zero value of nil, indicating they don't point to any memory address.
+
+Array and Slice Types:
+The zero value for arrays and slices is an empty array or slice with a length and capacity of 0.
+
+Map Type:
+The zero value for a map is nil, indicating an empty map.
+
+Struct Types:
+For a struct, the zero value is a struct with all its fields set to their respective zero values.
