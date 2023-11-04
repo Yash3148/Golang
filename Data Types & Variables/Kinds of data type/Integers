@@ -1,0 +1,14 @@
+1. uint ---> Means "Unsigned Interger". (+, 0)
+
+2. int  ---> Means "Signed Interger" (+, 0, -)
+
+Data Type                                       Memory
+uint8                                      8  bits or 1 byte
+uint16                                     16 bits or 2 byte
+uint32                                     32 bits or 4 byte
+uint64                                     64 bits or 8 byte
+int8                                        8  bits or 1 byte
+int16                                      16 bits or 2 byte
+int32                                      32 bits or 4 byte
+int64                                      64 bits or 8 byte
+int                              4 bytes for 32-bit machines, 8 bytes for 64-bit machines

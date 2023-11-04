@@ -1,0 +1,5 @@
+String is represented as string.
+
+Example ---> "abc", "90%"
+
+String occupy 16 bits in golang.

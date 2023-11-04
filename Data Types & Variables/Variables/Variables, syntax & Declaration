@@ -1,0 +1,13 @@
+1. Go is statically typed.
+
+2. Variables are assigned a type, either explicitly or implicitly.
+
+Syntax ----->
+
+var <Variable-type> <data-type> = <values>
+
+example --->
+var s string = "Hello Yoshita"
+var i int = 100
+var b bool = true
+var f float64 = 77.90

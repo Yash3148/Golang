@@ -1,0 +1,8 @@
+Float is of two types ---> Float32 & Float64.
+
+Float64 is highly use.
+
+float32 ---> 32 bits or 4 bytes
+float64 ---> 64 bits or 8 bytes
+
+Example --> 60.56, 70.45
