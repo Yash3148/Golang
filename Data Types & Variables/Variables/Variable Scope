@@ -1,0 +1,28 @@
+Block 
+{
+    // outer block
+    {
+        // inner block
+    }
+}
+
+# Inner blocks can access variables declared within outer blocks.
+# Outer blocks cannot access variables declared within inner blocks.
+
+package main
+
+import ("fmt")
+
+func main() {
+	city := "London"
+	{
+		country := "UK"
+		fmt.Println(country)
+		fmt.Println(city)
+	}
+	fmt.Println(city)
+}
+
+// UK
+// London
+// London

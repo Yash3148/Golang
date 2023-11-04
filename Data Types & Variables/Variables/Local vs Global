@@ -1,0 +1,38 @@
+A. Local Variables
+
+# Declared inside a function or a block
+# Not acessible outside the function or the block.
+# Can also be declared inside looping and conditional statements.
+
+package main
+
+import ("fmt")
+
+func main() {
+	name:= "Yoshita"
+	fmt.Println(name)
+}
+
+>>> go run main.go
+Yoshita
+
+B. Global Variables
+
+# Declared outside of a function or a block.
+# Available thoughout the lifetime of a program.
+# Declared at the top of the program outside all functions or blocks.
+# Can be accessed from any part of the program.
+
+
+package main
+
+import ("fmt")
+
+var name string = "Yoshita"
+
+func main() {
+	fmt.Println(name)
+}
+
+>>> go run main.go
+Yoshita
