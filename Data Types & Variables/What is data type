@@ -1,0 +1,36 @@
+In the Go programming language (often referred to as Golang), data types are used to specify the type of data that a variable can hold. Go is a statically typed language, which means that the data type of a variable is determined at compile time. Go has several built-in data types, and you can also create custom data types using structs.
+
+Here are some of the basic data types in Go:
+
+Numeric Types:
+
+int and uint: Signed and unsigned integers, with various sizes (e.g., int32, int64, uint8, uint16).
+float32 and float64: Floating-point numbers.
+complex64 and complex128: Complex numbers.
+Boolean Type:
+
+bool: Represents a boolean value, which can be either true or false.
+String Type:
+
+string: Represents a sequence of characters.
+Composite Types:  
+
+array: Fixed-size array with elements of the same type.
+slice: Dynamic, resizable array-like data structure.
+map: Associative array (key-value pairs).
+struct: User-defined composite type to group different fields.
+Pointer Types:
+
+*T: Represents a pointer to a value of type T.
+Function Types:
+
+func: Represents a function type.
+Interface Types:
+
+interface: Defines a set of methods that a type must implement.
+Channel Types:
+
+chan: Used for communication between goroutines in concurrent programming.
+Custom Types:
+
+You can create your own custom data types using the type keyword. For example, you can create an alias for an existing type or define a new type with specific behaviors.

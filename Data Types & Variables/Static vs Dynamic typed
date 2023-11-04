@@ -1,0 +1,24 @@
+                                                  Static vs Dynamic Typed Language
+
+Static typing and dynamic typing are two different approaches to how programming languages handle data types in a program. They refer to when the determination of data types is made: at compile time (static typing) or at runtime (dynamic typing).
+
+Static Typing:
+
+In statically typed languages, the data types of variables are known and checked at compile time.
+Type checks are performed by the compiler to catch type-related errors before the program runs. This can help detect and prevent many common programming mistakes.
+Variables have fixed data types, and the data type of a variable doesn't change during runtime.
+Examples of statically typed languages include Go, C, C++, Java, and Rust.
+Here's an example in a statically typed language (Java):
+
+int x = 5; // The variable 'x' is declared as an integer.
+x = "Hello"; // This would result in a compile-time error because 'x' is expected to be an integer, not a string.
+Dynamic Typing:
+
+In dynamically typed languages, data types are determined and checked at runtime when the program is executed.
+Variables can change their data type during the execution of the program, and type checks are typically deferred until runtime. This allows for more flexibility but may result in type-related errors during program execution.
+Examples of dynamically typed languages include Python, JavaScript, Ruby, and Perl.
+Here's an example in a dynamically typed language (Python):
+
+x = 5  # Initially, 'x' is an integer.
+x = "Hello"  # Now, 'x' is a string, and this is perfectly valid in a dynamically typed language.
+Both static typing and dynamic typing have their advantages and disadvantages. Static typing can catch type-related errors early in the development process, making code more robust and efficient. Dynamic typing allows for more flexibility and quicker development, but it may lead to type-related errors that are only discovered at runtime. The choice between the two depends on the programming language, the specific project requirements, and developer preferences. Some languages, like Go, offer a compromise with strong static typing but with type inference, which can reduce the need for explicit type annotations.
