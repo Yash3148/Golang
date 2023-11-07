@@ -1,0 +1,75 @@
+1. Find the type of variable
+
+Type of variable
+
+a) %T                               format specifier
+b) reflect.Typeof            Function from the reflect package
+
+------------------------------------------------------------------------------------------------------------------------------
+
+a) using %T
+
+package main
+import "fmt"
+
+func main()  {
+	var grades int = 42
+	var message string = "Hello World"
+	var isCheck bool = true
+	var amount float32 = 5466.54
+
+	fmt.Printf("variable grades = %v is type %T \n", grades, grades)
+	fmt.Printf("variable message = %v is type %T \n", message, message)
+	fmt.Printf("variable isCheck = %v is type %T \n", isCheck, isCheck)
+	fmt.Printf("variable amount = %v is type %T \n", amount, amount)
+}
+
+// variable grades = 42 is type int 
+// variable message = Hello World is type string 
+// variable isCheck = true is type bool 
+// variable amount = 5466.54 is type float32 
+
+------------------------------------------------------------------------------------------------------------------------------
+
+b) using reflect.Typeof
+
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
+func main() {
+	fmt.Printf("Type: %v\n", reflect.TypeOf(1000))
+	fmt.Printf("Type: %v\n", reflect.TypeOf("Priyanka"))
+	fmt.Printf("Type: %v\n", reflect.TypeOf(46.02))
+	fmt.Printf("Type: %v\n", reflect.TypeOf(true))
+}
+
+// Type: int
+// Type: string
+// Type: float64
+// Type: bool
+
+------------------------------------------------------------------------------------------------------------------------------
+
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
+func main() {
+	var grades int = 42
+	var message string = "Hello World"
+
+	fmt.Printf("variable grades = %v is of type %v \n", grades, reflect.TypeOf(grades))
+	fmt.Printf("variable message = %v is of type %v \n", message, reflect.TypeOf(message))
+}
+
+// variable grades = 42 is of type int 
+// variable message = Hello World is of type string 
+
+------------------------------------------------------------------------------------------------------------------------------

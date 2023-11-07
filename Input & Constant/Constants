@@ -1,0 +1,57 @@
+Constants are variables whose values once initalized cannot be modified. It doesnot work for short hand method. It will error when constant is declared as const := 200
+
+Syntax:
+
+const <const name> <data type> = <value>
+
+Type of Constants
+
+1. Untyped Constant
+
+* Constants are Untyped unless they are explicitly given a type at declation.
+* Allow for flexibility
+
+Example:
+
+const age = 12
+const h_name, h_age = "Yoshita", 21
+
+2. Typed Constant
+
+* Constants are typed when you explicitly specify the type at declation.
+* flexibility that comes with Untyped Constantsis lost.
+
+Example:
+
+const name string = "Yoshita"
+const age int = 21
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+package main
+
+import "fmt"
+
+func main() {
+    // Untyped constant (no specific type)
+    const untypedConst = 42
+
+    // Typed constant (with an explicit int type)
+    const typedConst int = 42
+
+    // You can use both constants in expressions
+    result1 := untypedConst + 10
+    result2 := typedConst + 10
+
+    fmt.Printf("Untyped Constant: %v\n", untypedConst)
+    fmt.Printf("Typed Constant: %v\n", typedConst)
+    fmt.Printf("Result with Untyped Constant: %v\n", result1)
+    fmt.Printf("Result with Typed Constant: %v\n", result2)
+}
+
+<!-- Untyped Constant: 42
+Typed Constant: 42
+Result with Untyped Constant: 52
+Result with Typed Constant: 52 -->
+
+--------------------------------------------------------------------------------------------------------------------------------------

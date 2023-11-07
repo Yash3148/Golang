@@ -1,0 +1,72 @@
+The Process of converting one data type to another is known as Type casting.
+
+Data types can be converted to other data types, but this does not guarantee that the value will remain intact.
+
+1. Integer to Float
+
+package main 
+import "fmt"
+
+func main()  {
+	var i int = 90
+	var f float64 = float64(i)
+
+	fmt.Printf("%.2f\n", f)
+}
+
+// 90.00
+
+2. Float to Integer
+
+package main 
+import "fmt"
+
+func main()  {
+	var i int = int(f)
+	var f float64 = 45.89
+
+	fmt.Printf("%v\n", i)
+}
+
+// 45
+
+*** Strconv Package ***
+
+Itoa()
+
+* Converts Integer to strimg.
+* returns onevaule-sting formed with the given integer.
+
+Atoi()
+* Converts string to integer
+* returns wo values the corresponding integer, error (if any).
+
+package main 
+import (
+	"fmt"
+	"strconv"
+)
+
+func main()  {
+	var i int = 90
+	var s string = strconv.Itoa(i)
+	fmt.Printf("%q",s)
+}
+
+// "90"
+
+package main 
+import (
+	"fmt"
+	"strconv"
+)
+
+func main()  {
+	var s string = "200"
+	i, err := strconv.Atoi(s)
+	fmt.Printf("%v, %T \n", i, i)
+	fmt.Printf("%v, %T \n", err, err)
+}
+
+// 200, int 
+// <nil>, <nil> 
