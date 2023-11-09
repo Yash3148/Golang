@@ -1,0 +1,51 @@
+Comparsion Operators
+
+* Compare two Operands and yield a boolean value.
+
+* Allow values of the same data type for Comparsion.
+
+* Comman Comparsion-
+     1. Does one string match another?
+     2. Are two numbers the same?
+     3. Is one number greator than another?
+
+
+1. Equal to (==)
+     Returns true when th values are Equal.
+
+     package main 
+     import "fmt"        
+     
+     func main()  {
+          var city string = "Kolkata"                         
+          var city_2 string = "Calcutta"
+     
+          fmt.Println(city == city_2)                          // False
+     }  
+
+2. Not Equal to (!=)
+     Returns true when the values are not Equal.
+
+     package main 
+     import "fmt"        
+     
+     func main()  {
+          var city string = "Kolkata"                         
+          var city_2 string = "Calcutta"
+     
+          fmt.Println(city != city_2)                          // True
+     }      
+
+3. Less than (<)
+     Returns true when the left Operand is lesser than the right Operand. 
+     
+     package main 
+     import "fmt"        
+     
+     func main()  {
+          var city string = "Kolkata"                         
+          var city_2 string = "Calcutta"
+     
+          fmt.Println(city != city_2)                          // True
+     }    
+

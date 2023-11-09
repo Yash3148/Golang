@@ -1,0 +1,24 @@
+******** Operators & Operands *********
+
+a + b;
+
++  ----> Operators
+a,b ---> Operands
+
+Kinds of Operators.
+
+1. Arithmetic Operators
++  -  *  /  %  ++   --
+
+2. Comparsion Operators
+==  !=  <  <=  >  >=
+
+3. Assignment Operators
+= +=  -=  *=  /*  %=
+
+4. Bitwise Operators
+&  |  <<  >>  ^
+
+5. Logical Operators
+&&  ||  !
+
