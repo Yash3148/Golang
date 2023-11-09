@@ -1,0 +1,91 @@
+Arithmetic Operators
+
+* used to perform common Arithmetic Operations, such as addition, subtraction & Multiplication. etc.
+
+* Common Comparsions - 
+     1. Does the sum of two numbers equal a particular value?
+     2. Is the difference between two numbers lesser than a particular value?
+
+1. Addition (+)
+    * adds the left and right operand.
+
+    package main 
+    import "fmt"
+
+    func main()  {
+         var a,b string = "foo", "bar"    // foobar
+         fmt.Println(a + b)
+    }
+    
+2. Subtraction (-)
+    * adds the right and left operand.
+
+    package main 
+    import "fmt"
+
+    func main()  {
+         var a,b float64 = 79.02, 75.66    // 3.36
+         fmt.Printf("%.2f", a - b)
+    }
+
+3. Multiplication (*)    
+     * Multiplies both operand.
+   
+     package main 
+     import "fmt"
+ 
+     func main()  {
+          var a,b int = 12, 2              // 24
+          fmt.Println(a * b)
+     }
+ 
+4. Division (/)
+     * Returns the quotient when left operand is divided by right operand.
+
+     package main 
+     import "fmt"
+ 
+     func main()  {
+          var a,b int = 12, 2              // 6
+          fmt.Println(a / b)
+     }
+
+5. Modules (/)
+     * Returns the remainder when left operand is divided by right operand.
+
+     package main 
+     import "fmt"
+
+     func main()  {
+          var a,b int = 12, 2              // 0
+          fmt.Println(a % b)
+     }
+
+6. Increment (++)
+     * Unary Operators
+     
+     * Increment the value of operand by one.
+
+     package main 
+     import "fmt"
+ 
+     func main()  {
+          var a int = 2  
+          a++                                   // 3
+          fmt.Println(a)
+     } 
+     
+
+ 7. Decrement (--)
+     * Unary Operators
+     
+     * Increment the value of operand by one.
+
+     package main 
+     import "fmt"
+ 
+     func main()  {
+          var a int = 2  
+          a--                                   // 1
+          fmt.Println(a)
+     }     
