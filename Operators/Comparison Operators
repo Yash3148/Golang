@@ -38,14 +38,46 @@ Comparsion Operators
 
 3. Less than (<)
      Returns true when the left Operand is lesser than the right Operand. 
-     
+
      package main 
      import "fmt"        
      
      func main()  {
-          var city string = "Kolkata"                         
-          var city_2 string = "Calcutta"
+          var age int = 5                         
+          var age_2 int = 10
      
-          fmt.Println(city != city_2)                          // True
+          fmt.Println(age < age_2)                          // True
      }    
 
+4. Less than or Equal to (<=)
+     Returns True when the left Operand is lesser or Equal to the right Operand.
+
+     package main 
+     import "fmt"        
+     
+     func main()  {
+          var age, age_2 int = 10, 10
+          fmt.Println(age <= age_2)                          // True
+     }      
+
+5. Greator than (>)
+     Returns true when the left Operand is greator than the right Operand.
+
+     package main 
+     import "fmt"        
+     
+     func main()  {
+          var age, age_2 int = 9, 10
+          fmt.Println(age > age_2)                          // False
+     }      
+
+6. Greator than or Equal to (>=)   
+     Returns true when the left Operand is greator or Equal to the right Operand.
+
+     package main 
+     import "fmt"        
+     
+     func main()  {
+          var age, age_2 int = 10, 10
+          fmt.Println(age >= age_2)                          // True
+     }      
