@@ -1,0 +1,62 @@
+Logical Operators
+
+* used to determine the logic between variables or values.
+
+* Commom Logical comparisons -
+      1. Are two variables bot true?
+      2. Does either of two expressions evaluate to true?
+
+1. AND (&&)
+    
+    * returns true if both the statement are true.
+    * returns false when either of the statement is false
+    
+    statement-1      statement-2         Result
+      true               true             true
+      false              true             false
+
+      package main
+      import "fmt"
+
+      func main()  {
+            var x int = 10
+            fmt.Println((x < 100) && (x < 200))            // True
+            fmt.Println((x < 300) && (x <  0))            // False
+      }
+
+2. OR (||)
+    
+      * returns true if One of the statement are true.
+      * returns false when both statement is false
+    
+      statement-1      statement-2         Result
+        true              false              true
+        false             false             false
+
+      package main
+      import "fmt"
+
+      func main()  {
+            var x int = 10
+            fmt.Println((x < 100) || (x < 200))            // True
+            fmt.Println((x < 300) || (x <  0))            //  True
+            fmt.Println((x < 5) || (x < 0))              //  False
+      }      
+
+3. NOT (!)
+    
+      * Unary Operator.
+      * Reverses the result, returns false if the expression evaluates to true and vice versa. 
+
+      !(true)  = False
+      !(false) = True
+
+      package main
+      import "fmt"
+
+      func main()  {
+            var x,y int = 10, 20 
+            fmt.Println(!(x > y))                // True
+            fmt.Println(!(true)))               //  False
+            fmt.Println(!(false))              //   True
+      }      
