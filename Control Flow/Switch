@@ -1,0 +1,116 @@
+Switch-case
+
+Syntax
+
+switch expression {
+
+case value_1:
+	// execute when expression equals to value_1
+
+case value_2:
+	// execute when expression equals to value_1
+
+default:	
+   // exectue when no match is found.
+}
+
+1. Switch Statement
+  
+   package main 
+   import "fmt"
+
+   func main()  {
+	   var i int = 100
+	   switch i {
+
+	        case 10:
+		        fmt.Println("i is 10")
+   
+		    case 100, 200:
+			    fmt.Println("i is either 100 or 200")            // i is either 100 or 200
+			 
+			default:
+				fmt.Println("i is niether 0, 100 or 200")   
+
+	   }
+   }
+
+   package main 
+   import "fmt"
+
+   func main()  {
+	   var i int = 800
+	   switch i {
+
+	        case 10:
+		        fmt.Println("i is 10")
+   
+		    case 100, 200:
+			    fmt.Println("i is either 100 or 200")            // i is niether 0, 100 or 200
+			 
+			default:
+				fmt.Println("i is niether 0, 100 or 200")   
+
+	   }
+   }
+
+** Fall-through ---> The fallthrough keyword is used in switch-case to force the execution flow to fall through the successsive case block. 
+
+    package main 
+	import "fmt"
+
+	func main()  {
+		 var i int = 10
+		 switch i {
+			
+		 case -5:
+			fmt.Println("-5")
+
+		 case 10:
+			fmt.Println("10")	
+			fallthrough
+
+		 case 20:
+			fmt.Println("20")	        
+			fallthrough
+                                                 // 10
+		 default:                               //  20
+			fmt.Println("default")	           // default
+		 }
+	}
+
+Syntax
+
+switch {
+   
+case condition_1:
+	// execute when condition_1 is true
+
+case condition_2:
+	// execute when condition_2 is true
+
+default:
+	// execute when no condition is true	
+
+}
+
+2. Switch with conditions
+
+   package main
+   import "fmt"
+
+   func main()  {
+	    var a, b int = 10, 20
+		switch {
+		    case a+b ==30:
+			   fmt.Println("Equal to 30")
+
+			case a+b <= 30:   
+			   fmt.Println("Less than or equal to 30")
+
+			default:
+				fmt.Println("Greator than 30")      // Equal to 30
+
+			}
+   }
+
