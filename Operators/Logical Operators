@@ -57,6 +57,6 @@ Logical Operators
       func main()  {
             var x,y int = 10, 20 
             fmt.Println(!(x > y))                // True
-            fmt.Println(!(true)))               //  False
+            fmt.Println(!(true))               //  False
             fmt.Println(!(false))              //   True
       }      
