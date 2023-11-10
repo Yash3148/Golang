@@ -1,0 +1,121 @@
+Bitwise Operators
+
+1. Bitwise AND (&)
+
+   * takes two numbers as operands and does AND on every bit of two numbers.
+   
+   12 = 00001100 (In Binary)
+   25 = 00011001 (In Binary)
+
+   00001100
+ & 00011001
+ -------------
+   00001000 (In Decimal)
+
+   1 + 1 = 1
+   0 + 0 = 0
+   0 + 1 = 0
+
+   package main 
+   import "fmt"
+
+   func main()  {
+      var x, y int = 12, 25
+      z := x & y
+      fmt.Println(z)             // 8
+   }
+
+2. Bitwise OR (|)
+
+  * takes two numbers as operands and does OR on every bit of two numbers.
+   
+   12 = 00001100 (In Binary)
+   25 = 00011001 (In Binary)
+
+   00001100
+ | 00011001
+ -------------
+   00011101 (In Decimal)
+
+   1 + 1 = 1
+   0 + 0 = 0
+   0 + 1 = 1
+
+   package main 
+   import "fmt"
+
+   func main()  {
+      var x, y int = 12, 25
+      z := x | y
+      fmt.Println(z)             // 29
+   }
+
+3. Bitwise XOR (^)
+
+   * takes two numbers as operands and does XOR on every bit of two numbers.
+   * The result of XOR is 1 if the two bits are opposite.
+    
+    12 = 00001100 (In Binary)
+    25 = 00011001 (In Binary)
+ 
+    00001100
+  ^ 00011001
+  -------------
+    00010101 (In Decimal)
+ 
+    1 + 1 = 0
+    0 + 0 = 0
+    0 + 1 = 1
+ 
+    package main 
+    import "fmt"
+ 
+    func main()  {
+       var x, y int = 12, 25
+       z := x ^ y
+       fmt.Println(z)             // 21
+    }
+
+4. Left shift (<<)
+
+  * shifts all bits towards Left by a certain number of specified bits.
+  * The bit positions that have vacated by the left shift operator are filled with 0.
+
+  212 = 11010100 (In Binary)
+
+  212 << 1
+
+    11010100|
+    ////////|
+   11010100 |0 = 424 (in Decimal) 
+
+   package main 
+   import "fmt"
+
+   func main()  {
+        var x int = 212
+        z := x << 1
+        fmt.Println(z)          // 424
+   }
+
+5. Right shift (>>)
+
+  * shifts all bits towards Right by a certain number of specified bits.
+  * excess bits shifted of to the right are discarded.
+
+  212 = 11010100 (In Binary)
+
+  212 >> 2
+
+      |110101|00
+      |\\\\\\
+    00| 110101  = 53 (in Decimal)
+
+   package main 
+   import "fmt"
+
+   func main()  {
+        var x int = 212
+        z := x >> 2
+        fmt.Println(z)          // 53
+   }
