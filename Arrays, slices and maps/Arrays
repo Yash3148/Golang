@@ -1,0 +1,158 @@
+Arrays 
+
+* An array is a collection of similar data elements stored at contiguous memory locations.
+
+                            1  2  3  4  
+                        "Yash" "Yoshita" "Ross"
+
+array elements:       1      2      3      4      5
+memory address:      200    204    208    212    216   // Difference is 4 bytes because here we are usin integer       
+
+* Arrays is known as homogenous data type because it stored single type of data type.
+
+Why we need Arrays
+
+            grade_chem : 90  grade_math:85  grade_phy: 70
+
+To resolve this we use array, it helps to reduce size
+              
+            grades: 90 85 70
+
+* Fixed Length.
+* element should be of the same data type.
+* Pointer  : It points the first element of array.
+* Length   : It denotes the number of element in array.
+* Capacity : It denotes the number of element it can contain.
+
+Array Declaration syntax:
+
+         var <array name> [<size of the array>] <data type>
+
+         var grades [5] int
+         var fruits [3] string
+
+Array Declaration
+
+        package main
+        import "fmt"
+
+        func main () {
+             var grades [5] int
+             fmt.Println(grades)   // [0 0 0 0 0]
+             
+             var fruits [3] string
+             fmt.Println(fruits)   // [   ]
+         }
+
+Array Initialization
+
+         var grades [3] int = [3] int {10, 20, 30}
+         grades := [3] int{10, 20, 30}
+         grades := [...] int {10, 20, 30}
+
+        package main
+        import "fmt"
+
+        func main () {
+             var grades [3] int = [3] int {10, 20, 30}
+             fmt.Println(grades)   // [10 20 30]
+             
+             fruits := [2] string {"Apple", "Banana'}
+             fmt.Println(fruits)   // [Apple Banana]
+
+             marks := [...] int {85, 75, 96}
+             fmt.Println(marks)   // [85 75 96]
+         }
+
+1. Length of the array { len() }         
+    * The length of the array refers to the number of elements stored in the array
+
+        package main
+        import "fmt"
+
+        func main () {
+             var grades [3] int = [3] int {10, 20, 30}
+             fmt.Println(len(grades))   // 3
+         }
+
+2. Indexes in array
+
+grades: 90 86 76 42 85               grades[1] ==> 86
+index:   0 1  2  3  4
+
+            0 <= index <= len-1
+           
+        package main
+        import "fmt"
+
+        func main () {
+             var grades [3] int = [3] int {10, 20, 30}
+             fmt.Println(grades[1])   // 20
+         }
+ 
+* Changing value at the index  
+        package main
+        import "fmt"
+
+        func main () {
+             var grades [3] int = [3] int {10, 20, 30}
+             fmt.Println(grades)   // [10 20 30]
+
+             grades[1] = 07
+             fmt.Println(grades)  // [10 7 30]
+         }
+
+* Looping through an array         
+
+        for i := 0; i < len(grades); i++{
+            fmt.Println(grades[i])
+        }
+
+        package main
+        import "fmt"
+        func main () {
+             var grades [3] int = [3] int {10, 20, 30}
+             fmt.Println(grades)   // [10 20 30]
+
+             for i := 0; i < len(grades); i++{
+              fmt.Println(grades[i])    // 10 20 30
+            }
+         }
+
+    * Range Keyword
+       
+        for index, element := range grades {
+            fmt.Println(index, "=>", element)
+        }
+
+        package main
+        import "fmt"
+        func main () {
+             var grades [3] int = [3] int {10, 20, 30}
+             fmt.Println(grades)   // [10 20 30]
+
+             for index, element := range grades {
+             fmt.Println(index, "=>", element)               0 => 10
+             }                                               1 => 20
+         }                                                   2 => 30    
+   
+3. Multidimensional Arrays
+
+      0 |  2   4
+        |  
+        |  0   1
+        | 
+      1 |  4  16
+        |
+        |  0   1          
+        |  
+      2 |  8  64                   For accessing 64 we can write as, arr[2][1] => 64  arr[1][0] => 4    arr[0][0] => 2
+ 
+    package main
+    import "fmt"
+
+    func main () {
+        arr := [3][2] int {{2, 4}, {4, 16}, {8, 64}}
+
+        fmt.Println(arr[2][1])   // 64
+    }
