@@ -1,0 +1,247 @@
+Slices
+
+* Continuous segment of an underlying array.
+* Variable typed (elements can be added or removed)
+* more flexible
+
+                            Components of a Slice
+
+            Slice                                                          Underlying array
+
+     ___________________                                                 _______________________
+    |                   |                                               |           10          | 0
+    |___________________|                                               |           20          | 1
+    |                   |                                               |           30          | 3
+    |____Length = 4_____|                                               |           97          | 4
+    |                   |                                               |           54          | 5 
+    |____Capacity = 5___|                                               |           60          | 6 
+                                                                         -----------------------
+
+* Declaring and initializing a slice.
+
+     <slice_name>  := [] <data_type>{<values>}
+     grades := [] int {10, 20, 30}
+
+1. 
+     package main
+     import "fmt"
+
+     func main (){
+          slice := [] int{10, 20, 30}       
+          fmt.Println(slice)                    // [10 20 30]
+     }
+     
+     array[start_index : end_index]
+     
+     array[0 : 3]      // 0, 1, 2
+     array[1 : 6]     //  1, 2, 3, 4, 5
+     array[  : 4]    //   0, 1, 2, 3
+     array[  :  ]    //   0, 1, 2, 3, 4, 5
+
+2. 
+     package main
+     import "fmt"
+
+     func main (){
+       arr := [10] int {10, 20, 30, 40, 50, 60, 70, 80, 90, 100}
+       slice_1 := arr[1:8]
+
+       fmt.Println(slice_1)                // [20 30 40 50 60 70 80]
+     }
+
+3. 
+     package main
+     import "fmt"
+
+     func main (){
+       arr := [10] int {10, 20, 30, 40, 50, 60, 70, 80, 90, 100}
+       slice_1 := arr[1:8]
+       fmt.Println(slice_1)                // [20 30 40 50 60 70 80]
+
+       sub_slice := slice_1[0:3]
+       fmt.Println(sub_slice)             //  [20 30 40]
+     }
+
+*      slice := make([] <data_type>, length, capacity)    
+       slice := make([] int, 5, 10)
+
+4.     
+       package main
+       import "fmt"
+
+       func main () {
+              slice := make ([] int, 5, 8)
+              fmt.Println(slice)                  // [0 0 0 0 0]
+              fmt.Println(len(slice))            //    5
+              fmt.Println(cap(slice))           //     8
+       }
+
+5. 
+       package main 
+       import "fmt"
+
+       func main () {
+              arr := [10] int {10, 20, 30, 40, 50, 60, 70, 80, 90, 100}
+              slice := arr [1:8]
+              fmt.Println(cap(arr))             // 10
+              fmt.Println(cap(slice))          //   9
+       }
+
+* Slice & Index numbers
+ 
+       package main
+       import "fmt"
+
+       func main () {
+              arr := [5] int {10, 20, 30, 40, 50}
+              slice := arr[ : 3]
+
+              fmt.Println(arr)
+              fmt.Println(slice)
+
+              slice[1] = 9000
+
+              fmt.Println("after modification")
+              fmt.Println(arr)
+              fmt.Println(slice)
+       }
+
+       [10 20 30 40 50]
+       [10 20 30]
+       after modification
+       [10 9000 30 40 50]
+       [10 9000 30]  
+
+* Appending to a slice.
+
+              func append (s [] T, vs ...T) []T
+              slice = append(slice, element-1, element-2)
+              slice = append(slice, 10, 20, 30)
+
+underlying array                slice                  slice_1                 slice_2
+   10                            20                       20                    20
+   20                            30                       30                    30
+   30                          len = 2                    900                  -90
+   40                          cap = 3                   len = 3                500
+                                                         cap = 3               len = 4
+                                                                               cap = 6
+
+ slice   := arr[1:3]
+ slice_1 := append(slice, 900)
+ slice_2 := append(slice, 90, 500)          
+
+       package main
+       import "fmt"
+
+       func main () {
+              arr := [4] int {10, 20, 30, 40}
+              slice := arr[1 : 3]
+
+              fmt.Println(slice)
+              fmt.Println(len(slice))
+              fmt.Println(cap(slice))
+
+              slice = append(slice, 900, -90, 50)
+
+              fmt.Println(slice)
+              fmt.Println(len(slice))
+              fmt.Println(cap(slice))
+       }
+       // Output
+
+       [20 30]
+           2
+           3
+       [20 30 900 -90 50] 
+           5
+           6 
+
+* Appending to a slice to a slice
+
+      slice = append(slice, anotherslice..)  
+
+       package main
+       import "fmt"
+
+       func main () {
+              arr := [5] int {10, 20, 30, 40,50}
+              slice := arr[ : 2]
+
+              arr_2 := [5] int {5, 10, 15, 25, 35}
+              slice_2 := arr_2 [ : 2]
+
+              new_slice := append(slice, slice_2...)
+             
+              fmt.Println(new_slice)                      // [10 20 5 10]
+       }
+      
+* Deleting from a slice
+
+       package main
+       import "fmt"
+
+       func main () {
+              arr := [5] int {10, 20, 30, 40, 50}
+              i := 2
+              fmt.Println(arr)                       // [10 20 30 40 50]
+              slice_1 := arr[ :i]
+              slice_2 := arr[i+1 : ]
+
+              new_slice := append(slice_1, slice_2...)
+              fmt.Println(new_slice)               // [10 20 40 50]
+       }
+
+* Copying from a slice
+        
+         func copy(dst, src []type) int
+         num := copy(dest_slice, src_slice)
+
+         package main
+         import "fmt"
+
+         func main () {
+              src_slice := [] int {10, 20, 30, 40, 50}
+              dest_slice := make([]int, 3)
+              num := copy(dest_slice, src_slice)
+
+              fmt.Println(dest_slice)
+              fmt.Println("Number of elements copied: ", num)
+         }
+
+         // Output
+         [10 20 30]
+       Number of elements copied:  3
+
+* Looping through a slice
+
+       package main
+       import "fmt"
+
+       func main () {
+              arr := [] int {10, 20, 30, 40, 50}
+              for index, value := range arr {
+                     fmt.Println(index, "=>", value)
+              }
+       }
+
+       0 => 10
+       1 => 20
+       2 => 30
+       3 => 40
+       4 => 50
+
+       package main
+       import "fmt"
+
+       func main () {
+              arr := [] int {10, 20, 30, 40, 50}
+              for _, value := range arr {
+                     fmt.Println(value)
+              }
+       }
+
+       10
+       20
+       30
+       40
+       50
