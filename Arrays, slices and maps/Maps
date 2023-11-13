@@ -1,0 +1,177 @@
+Maps
+
+* Unodered collection of key/value pairs.
+* Implemented by hash tables.
+* Provide efficient add, get and delete operations.
+
+    key -------------------> value
+    "en"                     English
+    "fr"                     French
+    "ko"                     Korean
+
+* Declaring and initializing a Maps
+          
+            var <map_name> map [<key_data_type>] <value_data_type>
+                
+                var my_map map [string] interface int               // panic: assignment to entry in nil map
+1.
+    package main
+    import "fmt"
+
+    func main () {
+         var codes map [string] string
+         codes["en"] = "English"
+         fmt.Println(codes)                        // panic: assignment to entry in nil map
+    }
+
+    <map_name> := map [<key_data_type>] <value_data_type> {<key-vaule-pairs>}
+
+    codes := map [string] string {"en": "English", "fr" : "French"}
+
+2.    
+    package main
+    import "fmt"
+
+    func main () {
+         codes := map [string] string {"en": "English", "fr" : "French"}
+         fmt.Println(codes)                 // map[en:English fr:French]      
+    }
+
+* Declaring and initializing a Maps - make () function
+
+         <map_name> := make(map[<key_data_type>] <value_data_type>, <initial_capacity>)
+
+3.    
+    package main
+    import "fmt"
+
+    func main () {
+         codes := make(map[string] int)
+         fmt.Println(codes)                 // map []      
+    }         
+
+* Length of a map
+
+4.    
+    package main
+    import "fmt"
+
+    func main () {
+         codes := map [string] string {"en": "English", "fr" : "French"}
+         fmt.Println(len(codes))                 // 2
+    }
+
+* Accessing of a map
+
+5.
+    package main
+    import "fmt"
+
+    func main () {
+         codes := map [string] string {"en": "English", "fr" : "French", "hi": "Hindi"}
+         fmt.Println(codes["en"])    
+         fmt.Println(codes["fr"])
+         fmt.Println(codes["hi"]) 
+    }            
+    English
+    French
+    Hindi
+
+* Getting a key
+
+         value, found := map_name[key]
+
+5.
+    package main
+    import "fmt"
+
+    func main () {
+         codes := map [string] int {"en": 1, "fr" : 2, "hi": 3}
+         value, found := codes["en"]
+         fmt.Println(found, value)         //  true 1
+         value, found = codes["hh"]
+         fmt.Println(found, value)        //   false 0   
+    }    
+            
+* Adding key-value pair
+
+          # map [key] = value
+
+6.
+    package main
+    import "fmt"
+
+    func main () {
+         codes := map [string] string {"en": "English", "fr" : "French"}
+         codes["it"] = "Italian"
+         fmt.Println(codes)             // map[en:English fr:French it:Italian]     
+    } 
+
+* Update key-value pair     
+
+      # map[key] = value 
+
+7.
+    package main
+    import "fmt"
+
+    func main () {
+         codes := map [string] string {"en": "English", "fr" : "French"}
+         codes["en"] = " English Premier"
+         fmt.Println(codes)             //map[en: English Premier fr:French]    
+    }
+
+* delete key-value pair
+  
+         # delete (map, key_name)
+
+8. 
+    package main
+    import "fmt"
+
+    func main () {
+         codes := map [string] string {"en": "English", "fr" : "French"}
+         fmt.Println(codes)              // map[en:English fr:French]
+         delete(codes, "en")
+         fmt.Println(codes)              // map[fr:French]
+    }         
+
+* Looping over a map/ Iterate over a map
+
+9.
+    package main
+    import "fmt"
+
+    func main () {
+         codes := map [string] string {"en": "English", "fr" : "French"}
+         for key, value := range codes {
+            fmt.Println(key, "=>", value)
+         }             
+    } 
+
+    en => English
+    fr => French
+
+* Truncate a map
+
+10.
+    package main
+    import "fmt"
+
+    func main () {
+         codes := map [string] string {"en": "English", "fr" : "French"}
+         for key, value := range codes {
+            delete(codes,key)
+         }      
+         fmt.Println(codes)       // map [] 
+    }
+
+    package main
+    import "fmt"
+
+    func main () {
+         codes := map [string] string {"en": "English", "fr" : "French"}
+
+         codes = make(map [string] string)   
+         fmt.Println(codes)       // map []
+    }
