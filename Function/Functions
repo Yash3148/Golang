@@ -1,0 +1,76 @@
+Functions
+
+* Self contained units of a code which carry out a certain job.
+* Help us divide a program into small manageable repeatable and oraganiable chunks.
+
+slice  ---------> len() ------------------------> Numbers.
+
+Why use function?
+1. Reusability
+2. Abstraction
+
+Functions Syntax
+
+               func <function_name> (<params>) <return type>{          -----> This part is known as function signature
+                // body of the function                                -----> This part is known as Function body.
+               }
+
+    func addNumbers (a int, b int) int {
+        // body of the function
+    }       
+
+    a & b -------------> addNumbers (+) -----------> sum
+    Input                                            Output
+
+* Return Keywords 
+
+              func addNumbers (a int, b int) int {
+                sum := a + b
+                return sum                      // Here return keyword is int because it will provide int as return value.
+              }
+
+* Calling a function
+
+              <function_name> (<argument(s)>)
+
+              addNumbers(2,3)
+
+              sumOfNumbers := addNumbers(2,3)
+
+* Naming convention for functions
+
+   1. Must begin with a letter
+   2. Can have any number of additional letters and symbols
+   3. Cannot contain spaces
+   4. Case-sensitive
+
+   2add & add number   ----> Invalid
+   add_2 & add_number  ----> Valid
+
+* Parameter vs arguments
+
+1. Function Parametes are the names listed in the function's definition.
+
+2. Function Arguments are the real values passed into the function.
+
+   func addNumbers (a int, b int) int {      Here, (a int, b int) is function parameters
+    sum := a + b
+    return sum
+   }
+
+   func main () {
+    sumOfNumbers := addNumbers(2,3)          Here, (2,3) is a function arguments
+    fmt.Print(sumOfNumbers)
+   }
+
+Functions 
+        package main
+        import "fmt"
+
+        func printGreeting (str string) {
+             fmt.Println("Hey there,", str)       // Hey there, Yoshita
+         }
+
+        func main (){
+             printGreeting("Yoshita")
+        } 
