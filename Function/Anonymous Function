@@ -1,0 +1,37 @@
+Anonymous Function
+
+* An Anonymous Function is a Function that is declared without any named identiifer to refer to it.
+
+* They can accept inputs and return outputs, just as standard functions do.
+
+* They can be used for containing functionality that need not be named and possibly for short-term use.
+
+* Function inside function
+ 
+          package main
+          import "fmt"
+
+          func main() {
+            x := func(1 int, b int) int {
+                return 1 * b 
+            }
+            fmt.Printf("%T \n", x)
+            fmt.Println(x(20, 30))
+          }
+
+          // func(int, int) int 
+          // 600
+
+          package main
+          import "fmt"
+
+          func main() {
+            x := func(1 int, b int) int {
+                return 1 * b 
+            }(20,30)
+            fmt.Printf("%T \n", x)
+            fmt.Println(x)
+          }
+
+          // int
+          // 600
