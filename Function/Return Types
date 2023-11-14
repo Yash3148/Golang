@@ -1,0 +1,123 @@
+Functions - Return Types
+
+                                    1. Returning single value
+
+package main
+import "fmt"
+
+func addNumbers (a int, b int) string {
+   sum := a + b
+   return sum
+}
+func main (){
+   sumOfNumbers := addNumbers(2,3)
+   fmt.Print(sumOfNumbers)
+}
+
+                                   2. Returning multiple values
+
+package main
+import "fmt"
+
+func operation (a int, b int) (int, int) {
+   sum := a + b
+   diff := a - b
+   return sum, diff
+}
+func main (){
+   sum, diff := operation(20, 10)
+   fmt.Println(sum, diff)              // 30 10
+}
+ 
+package main
+import "fmt"
+
+func operation (a int, b int) (sum int, diff int) {
+   sum = a + b
+   diff = a - b
+   return 
+}
+func main (){
+   sum, diff := operation(20, 10)
+   fmt.Println(sum," ", diff)              // 30  10
+}
+      
+                                   Variadic Functions
+
+* Function that accepts variable number of argument.
+
+* It is possible to pass a varying number of arguments of the same type as referenced in function signature.              
+
+* To declare a Variadic function, the type of the final parameter is preceded by an ellipsis "..."
+
+* Example - fmt.Println method 
+
+declaration or Syntaxfor Variadic Functions
+
+       func <func_name> (param-1 type, param-2 type, para-3 ...type) <return_type>
+       func sumOfNumbers (numbers ...int) int     
+       func sumOfNumbers (str string, numbers ...int )
+
+1. 
+       package main 
+       import "fmt"
+
+       func sumOfNumbers (numbers ...int) int {
+
+         sum := 0
+         for _, value := range numbers {
+              sum += value
+       }
+       return sum
+      }
+      func main() {
+         fmt.Println(sumOfNumbers())                            // 0
+         fmt.Println(sumOfNumbers(10))                         // 10 
+         fmt.Println(sumOfNumbers(10, 20))                     // 30
+         fmt.Println(sumOfNumbers(10, 20, 30, 40, 50))        // 150
+      }
+
+2.    
+      package main
+      import "fmt"
+
+      func printDetails (student string, subjects ...string){
+            fmt.Println("Hey", student, ", here are your subjects - ")
+            for _, sub := range subjects {
+               fmt.Printf("%s, ", sub)
+            }
+      }
+
+      func main()  {
+            printDetails("Joe", "Physics", "Biology")
+      }
+
+   // Hey Joe , here are your subjects - 
+   // Physics, Biology, 
+
+* Blank identifier '_'
+
+1.
+       package main
+       import "fmt"
+       func f() (int, int) {
+         return 42, 53
+       }
+
+       func main() {
+         a, b := f()
+         fmt.Println(a, b)          // 42 53
+       } 
+
+2.
+       package main
+       import "fmt"
+
+       func f() (int, int){
+         return 42, 53
+       }
+
+       func main() {
+         v, _ := f ()
+         fmt.Println(v)           // 42
+       }
