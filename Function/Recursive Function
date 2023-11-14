@@ -7,7 +7,7 @@ Recursive Function
 * Used to solve a problem where the solution is dependent on the smaller instance of the same problem.
 
 * Factorial (5) = 5*4*3*2*1
-
+1.
        package main
        import "fmt"
 
@@ -23,3 +23,22 @@ Recursive Function
               result := factorial(n)
               fmt.Println("Factorial of", n, "is :", result)     // Factorial of 5 is : 120
        }
+
+2.
+       package main
+       import "fmt"
+
+       func print(n int) {
+              if n == 0 {
+                      return
+              }
+              fmt.Print(n)
+              print(n - 1)
+      
+      }
+
+      func main() {
+              print(5)       // 54321
+      }
+
+      
