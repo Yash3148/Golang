@@ -1,0 +1,84 @@
+Methods
+
+* A method arguments a function by adding an extra parameter section immediately after the `func` keyword that accepts a single argument.
+
+* This argument is called a `receiver`.
+
+func (<receiver>) <method_name>(<parameter>)
+<return_params>{
+    // code
+}
+
+* A method is a function that has a defined receiver.
+
+1. 
+package main
+import "fmt"
+
+type Circle struct {
+    radius float64
+    area float64
+}
+func (c *Circle) calcArea(){
+    c.area = 3.14 * c.radius * c.radius
+}
+
+func main (){
+    c := Circle{radius: 5}
+    c.calcArea()
+    fmt.Printf("%+v", c)
+}
+// {radius:5 area:78.5}
+
+2. 
+package main
+import "fmt"
+
+type Circle struct {
+    radius float64
+    area float64
+}
+func (c Circle) calcArea(){
+    c.area = 3.14 * c.radius * c.radius
+}
+
+func main (){
+    c := Circle{radius: 5}
+    c.calcArea()
+    fmt.Printf("%+v", c)
+}
+
+// {radius:5 area:0}
+
+* Method Sets
+
+  * Set of methods that are available to a data type.
+  
+  * Useful way to encapsulate functionality.
+
+3. 
+package main
+import "fmt"
+
+type Student struct {
+    name string
+    grades []int
+}
+func (s *Student) displayName() {
+    fmt.Println(s.name)
+}
+func (s *Student) calculatePercentage() float64 {
+    sum := 0
+    for _, v := range s.grades{
+        sum += v
+    }
+    return float64(sum*100) / float64(len(s.grades)*100)
+}
+func main (){
+    s := Student{name: "Joe", grades: []int{90, 75, 80}}
+    s.displayName()
+    fmt.Printf("%.2f%%", s.calculatePercentage())
+}
+
+// Joe
+// 81.67%
