@@ -192,3 +192,6 @@ func main () {
     modify(ascii_codes)
     fmt.Println(ascii_codes)
 }
+
+// map[A:65 F:70]
+// map[A:65 F:70 k:75]
