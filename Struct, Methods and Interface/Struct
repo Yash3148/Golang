@@ -1,0 +1,237 @@
+Struct
+
+* user-defined data type.
+
+* a structure that groups together data elements.
+
+* provide a way to reference a series of grouped values through a single variable name.
+
+* used when it makes sense to group or associate two or more data variables.
+
+* Declaration
+
+  type <struct_name> struct {
+    // list of fields
+  }
+
+  type Circle struct {
+    x float64
+    y float64
+    r float64
+  }
+
+*  Initialization
+ 
+   var <variable_name> <struct_name>
+
+   var s Student
+
+1. 
+package import
+import "fmt"   
+
+type Student struct {
+    name string
+    rollNo int
+    marks []int
+    grades map [string] int
+}
+
+func main () {
+    var s Student
+    fmt.Printf("%+v", s)
+}
+
+// {name: rollNo:0 marks:[] grades:map[]}
+
+    <variable_name> := new(<struct_name>)
+    st := new(student)
+
+2. 
+package import
+import "fmt"   
+
+type Student struct {
+    name string
+    rollNo int
+    marks []int
+    grades map [string] int
+}
+
+func main () {
+    st := new(Student)
+    fmt.Printf("%+v", st)
+}    
+
+// {name: rollNo:0 marks:[] grades:map[]}
+
+    <variable_name> := <struct_name>{
+    <field_name>: <value>,
+    <field_name>: <value>,
+    }
+    
+    st := Student{
+        name : "Joe",
+        rollNo : 12,
+    }
+
+3. 
+package main 
+import "fmt"
+
+type Student struct {
+    name string
+    rollNo int
+}
+func main (){
+    st := Student{
+        name: "Joe",
+        rollNo: 12,
+    }
+    fmt.Printf("%+v", st)
+}
+
+4. 
+package main 
+import "fmt"
+
+type Student struct {
+    name string
+    rollNo int
+}
+func main (){
+    st := Student{"Joe",12}
+    fmt.Printf("%+v", st)
+}
+// {name:Joe rollNo:12}
+
+* Accessing Fields
+   
+   <variable_name>.<field_name>
+
+5. 
+package main
+import "fmt"
+
+type Circle struct {
+    x int
+    y int
+    radius int
+}
+func main (){
+    var c Circle
+    c.x = 5
+    c.y = 5
+    c.radius = 5
+    fmt.Printf("%+v \n", c)
+}
+
+// {x:5 y:5 radius:5}
+
+* Passing Structs to functions
+
+6. 
+package main 
+import "fmt"
+
+type Circle struct{
+    x int
+    y int
+    radius float64
+    area float64
+}
+func calcArea(c Circle) {
+    const PI float64 = 3.14
+    var area float64
+    area = (PI * c.radius * c.radius)
+    c.area = area
+}
+func main () {
+    c := Circle{x: 5, y: 5, radius: 5, area: 0}
+    fmt.Printf("%+v \n, c")
+
+    calcArea(c)
+    fmt.Printf("%+v \n", c)
+}
+
+// {x:5 y:5 radius:5 area:0}
+// {x:5 y:5 radius:5 area:0}
+
+7. 
+package main 
+import "fmt"
+
+type Circle struct{
+    x int
+    y int
+    radius float64
+    area float64
+}
+func calcArea(c *Circle) {
+    const PI float64 = 3.14
+    var area float64
+    area = (PI * c.radius * c.radius)
+    c.area = area
+}
+func main () {
+    c := Circle{x: 5, y: 5, radius: 5, area: 0}
+    fmt.Printf("%+v \n, c")
+
+    calcArea(&c)
+    fmt.Printf("%+v \n", c)
+}
+
+// {x:5 y:5 radius:5 area:0}
+// {x:5 y:5 radius:5 area:78.5}
+
+* Comparing Struct
+
+  * Structs of the same type can be compared using Go's equality operators.
+
+                 ==        !=
+
+8. 
+package main
+
+import "fmt"
+
+type s1 struct {
+    x int
+}
+
+type s2 struct {
+    x int
+}
+
+func main() {
+    c := s1{x: 5}
+    c1 := s2{x: 5}
+    if c == c1 {
+        fmt.Println("Yes")
+    }
+}
+
+//  /tmp/26Q2IRkKXU.go:16:13: invalid operation: c == c1 (mismatched types s1 and s2)
+
+9.
+package main
+import "fmt"
+
+type s1 struct {
+    x int
+}
+
+func main() {
+    c := s1{x: 5}
+    c1 := s1{x: 6}
+    c2 := s1{x: 5}
+    if c != c1 {
+        fmt.Println("c and c1 have different values")
+    }
+    if c == c2 {
+        fmt.Println("c is same as c2")
+    }
+}
+
+// c and c1 have different values
+// c is same as c2
