@@ -1,0 +1,194 @@
+Pointers
+
+* A pointer is a variable that holds memory address of another variable.
+
+* They point where the memory is allocated and provide ways to find or even change the value located at the memory location.
+
+Address and dereference operators
+
+1. & operator - The address of a variable can be obtained by preceding the name of a variable with an ampersand sign (&), known as address-of operator.
+
+2. * operator - It is knoen as dereference operator. When placed before an address, it returns the value at that address.
+
+x := 77          
+
+memory address     memory
+0x0301             77
+
+&x = 0x0301
+*0x0301 = 7
+
+package main 
+import "fmt"
+
+func main() {
+    i := 10
+    fmt.Printf("%T %v \n", &i, &i)
+    fmt.Printf("%T %v \n", *(&i), *(&i))
+}
+
+// *int 0xc000020070 
+//  int 10 
+
+* Declaring a pointer 
+
+     var <pointer_name> *<data_type>
+     var ptr_i *int
+     var ptr_s *string
+
+package main
+import "fmt"
+
+func main () {
+    var i *int
+    var s *string
+    fmt.Println(i)
+    fmt.Println(s)
+}
+
+// <nil>
+// <nil>
+
+* Initializing a pointer
+
+     var <pointer_name> *<data_type> = &<variable_name>
+
+     i := 10
+     var ptr_i *int = &i
+
+     var <pointer_name> = &<variable_name>
+     s := "hello"
+     var ptr_s = &s
+
+     <pointer_name> := &<variable_name>
+     s := "hello"
+     ptr_s := &s
+
+package main
+import "fmt"
+
+func main () {
+    s := "hello"
+    var b *string = &s
+    fmt.Println(b)
+
+    var a = &s
+    fmt.Println(a)
+
+    c := &s
+    fmt.Println(c)
+}
+
+// 0xc000014270
+// 0xc000014270
+// 0xc000014270 
+
+* Dereferencing a pointer
+
+     *<pointer_name>
+
+package main
+import "fmt"
+
+func main () {
+    s := "hello"
+    fmt.Printf("%T %v \n", s, s)
+
+    ps := &s
+    *ps = "world"
+    fmt.Printf("%T %v \n", s, s)
+}
+
+// string hello 
+// string world 
+
+* Passing by value in function
+
+  * Function is called by directly passing the value of the variable as an argument.
+
+  * The parameter is copied into another location of your memory
+
+  * So, when accessing or modifying the variable within your function, only the copy is accessed or modified, and the original value is never modified.
+
+  * All basic types (int, float, bool, string, array) are passed by value.
+
+package main
+import "fmt"
+
+func modify (s string) {
+    s = "world"
+}
+
+func main () {
+    a := "hello"
+    fmt.Println(a)
+    modify(a)
+    fmt.Println(a)
+}
+
+// hello
+// hello
+
+* Passing by reference in function
+
+  * Go supports pointers, allowing you to pass references to values within your program.
+
+  * In call by reference/pointer, the address of the variable is passed into the function call as the actual parameter.
+
+  * All the operations in the function are performed on the value stored at the address of the actual parameters.
+
+1. 
+package main
+import "fmt"
+
+func modify (s *string) {
+    *s = "world"
+}
+
+func main () {
+    a := "hello"
+    fmt.Println(a)
+    modify(&a)
+    fmt.Println(a)
+}
+
+// hello
+// world
+
+2. Slices are passed by reference, by default.
+
+package main
+import "fmt"
+
+func modify (s []int) {
+    s[0] = 100
+}
+
+func main () {
+    slice := [] int {10, 20, 30}
+    fmt.Println(slice)
+    modify(slice)
+    fmt.Println(slice)
+}
+
+// [10 20 30]
+// [100 20 30]
+
+3. Maps, as well, are passed by reference, by default.
+
+package main
+import "fmt"
+
+func modify (m map [string] int) {
+    m["k"] = 75
+}
+
+func main () {
+    ascii_codes := make(map[string] int)
+    ascii_codes["A"] = 65
+    ascii_codes["F"] = 70
+
+    fmt.Println(ascii_codes)
+    modify(ascii_codes)
+    fmt.Println(ascii_codes)
+}
